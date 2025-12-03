@@ -1,0 +1,27 @@
+{
+  "name": "loomi-connect-mcp-client",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "TypeScript MCP client for Loomi Connect (Bloomreach Discovery) using @modelcontextprotocol/sdk",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc -p .",
+    "start": "node dist/index.js",
+    "dev": "node --loader ts-node/esm src/index.ts",
+    "search": "npm run build && node dist/index.js --q fish --rows 12 --facet"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.23.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.6.3",
+    "@types/node": "^22.7.4",
+    "ts-node": "^10.9.2"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "license": "MIT"
+}
+

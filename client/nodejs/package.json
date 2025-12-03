@@ -1,0 +1,20 @@
+{
+  "name": "loomi-connect-mcp-client",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Node.js MCP client for Loomi Connect (Bloomreach Discovery) using @modelcontextprotocol/sdk",
+  "main": "index.mjs",
+  "scripts": {
+    "start": "node index.mjs",
+    "search": "node index.mjs --q fish --rows 12 --facet"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.23.0"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "license": "MIT"
+}
+
