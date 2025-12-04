@@ -22,12 +22,12 @@ async def _noop() -> None:
 
 def main() -> None:
     ns = parse_args()
-    headers = build_headers(ns.account_id, ns.domain_key, ns.auth_key)
+    headers = build_headers(ns.account_id, ns.domain_key, ns.api_key)
 
     # Basic validation mirroring server expectations
-    if "account_id" not in headers or "domain_key" not in headers:
+    if "account_id" not in headers or "domain_key" not in headers or "x-api-key" not in headers:
         raise SystemExit(
-            "Both --account-id and --domain-key (or ACCOUNT_ID/DOMAIN_KEY env vars) are required."
+            "ACCOUNT_ID, DOMAIN_KEY, and API_KEY are required (env or flags)."
         )
     if ns.q.strip() == "*":
         raise SystemExit("Query q must not equal '*'.")

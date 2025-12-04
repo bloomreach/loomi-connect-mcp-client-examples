@@ -27,9 +27,9 @@ def parse_args() -> argparse.Namespace:
         help="Bloomreach domain key (env: DOMAIN_KEY)",
     )
     parser.add_argument(
-        "--auth-key",
-        default=os.getenv("AUTH_KEY") or os.getenv("LOOMI_AUTH_KEY"),
-        help="Bloomreach auth key (optional unless server requires; env: AUTH_KEY)",
+        "--api-key",
+        default=os.getenv("API_KEY") or os.getenv("LOOMI_API_KEY"),
+        help="Customer API key used for authorization (env: API_KEY)",
     )
     parser.add_argument(
         "--q",
@@ -59,15 +59,15 @@ def parse_args() -> argparse.Namespace:
 def build_headers(
     account_id: Optional[str],
     domain_key: Optional[str],
-    auth_key: Optional[str],
+    api_key: Optional[str],
 ) -> Dict[str, str]:
     headers: Dict[str, str] = {}
     if account_id:
         headers["account_id"] = account_id
     if domain_key:
         headers["domain_key"] = domain_key
-    if auth_key:
-        headers["auth_key"] = auth_key
+    if api_key:
+        headers["x-api-key"] = api_key
     return headers
 
 

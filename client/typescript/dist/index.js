@@ -11,8 +11,8 @@ async function main() {
     try {
         const args = parseArgs(argv);
         const headers = buildHeaders();
-        if (!headers.account_id || !headers.domain_key) {
-            throw new Error("Both ACCOUNT_ID and DOMAIN_KEY environment variables are required.");
+        if (!headers.account_id || !headers.domain_key || !headers["x-api-key"]) {
+            throw new Error("ACCOUNT_ID, DOMAIN_KEY, and API_KEY environment variables are required.");
         }
         const params = prepareArguments(args);
         const HttpTransportCtor = await getHttpTransportCtor();

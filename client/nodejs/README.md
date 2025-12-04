@@ -17,19 +17,20 @@ npm install
 - `LOOMI_MCP_URL` (default: `http://mcp.bloomreach.com/mcp`)
 - `ACCOUNT_ID` — required
 - `DOMAIN_KEY` — required
-- `AUTH_KEY` — optional unless the server enforces it
+- `API_KEY` — required
 
 Headers sent during initialize/requests:
-- `account_id`, `domain_key`, `auth_key`
+- `account_id`, `domain_key`, `x-api-key`
 
 ## Usage
 
 ```bash
 cd client/nodejs
 
+export LOOMI_MCP_URL=http://127.0.0.1:8000/mcp/
 export ACCOUNT_ID=your_account
 export DOMAIN_KEY=your_domain
-export AUTH_KEY=your_auth   # optional if server allows missing auth
+export API_KEY=your_api_key
 
 npm run start -- --q "fish" --rows 12 --facet
 ```

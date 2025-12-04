@@ -37,10 +37,10 @@ export function buildHeaders() {
   const headers = {};
   const accountId = env.ACCOUNT_ID || env.LOOMI_ACCOUNT_ID;
   const domainKey = env.DOMAIN_KEY || env.LOOMI_DOMAIN_KEY;
-  const authKey = env.AUTH_KEY || env.LOOMI_AUTH_KEY;
+  const apiKey = env.API_KEY || env.LOOMI_API_KEY;
   if (accountId) headers["account_id"] = accountId;
   if (domainKey) headers["domain_key"] = domainKey;
-  if (authKey) headers["auth_key"] = authKey;
+  if (apiKey) headers["x-api-key"] = apiKey;
   return headers;
 }
 

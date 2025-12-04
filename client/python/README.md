@@ -10,7 +10,7 @@ Minimal standalone Python client that connects to the Loomi MCP server over HTTP
 ```bash
 python3 -m venv .venv
 source .venv/bin/activate
-pip install -r client/python/requirements.txt
+pip install -r requirements.txt
 ```
 
 ## Environment
@@ -18,10 +18,10 @@ pip install -r client/python/requirements.txt
 - `LOOMI_MCP_URL` (default: `http://mcp.bloomreach.com/mcp`)
 - `ACCOUNT_ID` — required
 - `DOMAIN_KEY` — required
-- `AUTH_KEY` — optional unless the server enforces it
+- `API_KEY` — required
 
 These are sent as headers during MCP initialize via the streamable HTTP transport:
-`account_id`, `domain_key`, `auth_key`.
+`account_id`, `domain_key`, `x-api-key`.
 
 ## Usage
 
@@ -30,9 +30,9 @@ These are sent as headers during MCP initialize via the streamable HTTP transpor
 
 export ACCOUNT_ID=your_account
 export DOMAIN_KEY=your_domain
-export AUTH_KEY=your_auth   # optional if server allows missing auth
+export API_KEY=your_api_key
 
-python client/python/mcp_client.py --q "fish" --rows 12 --facet
+python mcp_client.py --q "fish" --rows 12 --facet
 ```
 
 Additional arguments can be passed via `--arg KEY=VALUE`. For lists, use comma separation:
@@ -71,7 +71,7 @@ python client/python/mcp_client.py \
   Run `pip install -r client/python/requirements.txt` in your active virtualenv.
 
 - 401/403 from server  
-  Check `ACCOUNT_ID`, `DOMAIN_KEY`, and `AUTH_KEY` environment variables.
+  Check `ACCOUNT_ID`, `DOMAIN_KEY`, and `API_KEY` environment variables.
 
 ## Notes
 
@@ -80,7 +80,7 @@ python client/python/mcp_client.py \
 - Headers are the simplified names preferred by the server:
   - `account_id`
   - `domain_key`
-  - `auth_key`
+  - `x-api-key`
 
 ## Reference
 
